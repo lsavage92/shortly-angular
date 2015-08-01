@@ -2,7 +2,7 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
   // Your code here
-  $scope.data = {};
+  $scope.data = { links: ['someGarbage', 'moreGarbage', 'cantBelieveItsMoreGarbage'] };
   $scope.getLinks = function(){
     Links.getLinks($scope.data)
       .then(function(links){

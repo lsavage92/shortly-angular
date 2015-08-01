@@ -6,7 +6,12 @@
       <li><a href='#/shorten' class='create'>Shorten</a></li>
       <li><a href="#/logout" class="logout">Logout</a></li>
     </ul>
+    <form>
+    </form>
   </div>
+  <form name='shortenLink' ng-submit='addLink()'>
+    <input type="text" ng-model="link.url">
+  </form>
 </div>
 
 

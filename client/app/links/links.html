@@ -8,6 +8,6 @@
     </ul>
   </div>
   <ul ng-controller='LinksController'>
-    <li></li>
+    <li ng-repeat="link in data.links">{{ link }}</li>
   </ul>
 </div>
