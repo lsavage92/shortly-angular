@@ -11,11 +11,22 @@ angular.module('shortly.services', [])
     //data is links
     //return response.data.links
     .then(function(resp){
-      console.log(resp);
       return resp.data;
     });
   };
-  return {getLinks : getLinks};
+
+  var addLink = function(link){
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+    })
+    .then(function(resp){
+      console.log(resp);
+      return resp.status;
+    })
+  };
+  return {getLinks : getLinks, addLink: addLink};
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
