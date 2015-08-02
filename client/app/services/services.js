@@ -1,6 +1,6 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
+.factory('Links', function ($http, $location) {
   //getLinks function
   var getLinks = function(){
     //send get request
@@ -22,9 +22,10 @@ angular.module('shortly.services', [])
       data: link
     })
     .then(function(resp){
+      $location.path('/links');
       console.log(resp);
       return resp.status;
-    })
+    });
   };
   return {getLinks : getLinks, addLink: addLink};
 })
