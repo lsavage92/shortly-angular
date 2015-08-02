@@ -8,7 +8,7 @@
     </ul>
   </div>
   <ul ng-controller='LinksController'>
-    <li class="link" ng-repeat="link in data.links">
+    <li class="link" ng-repeat="link in data.links | orderBy:'-visits'" >
     <a href="http://localhost:3000/api/links/{{link.code}}">
       <!-- float redirect image left -->
       <img src="../../assets/redirect_icon.png" height="48" width="42">
