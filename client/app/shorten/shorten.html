@@ -6,12 +6,19 @@
       <li><a href='#/shorten' class='create'>Shorten</a></li>
       <li><a href="#/logout" class="logout">Logout</a></li>
     </ul>
-    <form>
-    </form>
   </div>
-  <form name='shortenLink' ng-submit='addLink()'>
-    <input type="text" ng-model="link.url">
+  <form name='shortenLink' ng-submit='addLink()' novalidate>
+    <input type="url" ng-model="link.url" ng-class="{'error':shortenLink.$invalid&&shortenLink.$dirty}" name="link" required>
+    <button>Submit</button>
   </form>
+  <div ng-if="shortenLink.link.$error.required &&
+      shortenLink.$dirty">
+      <h2>URL is required</h2>
+  </div>
+  <div ng-show="shortenLink.link.$error.url &&
+      shortenLink.$dirty">
+      <h2>Not a valid url</h2>
+  </div>
 </div>
 
 
