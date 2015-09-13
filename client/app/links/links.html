@@ -7,8 +7,9 @@
       <li><a href="#/logout" class="logout">Logout</a></li>
     </ul>
   </div>
+  <input ng-model="searchLinks">
   <ul ng-controller='LinksController'>
-    <li class="link" ng-repeat="link in data.links | orderBy:'-visits'" >
+    <li class="link" ng-repeat="link in data.links | filter:searchLinks | orderBy:'-visits'" >
     <a href="http://localhost:3000/api/links/{{link.code}}">
       <!-- float redirect image left -->
       <img src="../../assets/redirect_icon.png" height="48" width="42">
